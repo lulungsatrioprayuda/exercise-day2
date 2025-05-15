@@ -1,5 +1,7 @@
 import express, { Express } from "express";
 import routes from "./routes";
+import { loggerMiddleware } from "./middleware/logger.middleware";
+import { errorHandler } from "./middleware/error.middleware";
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -7,12 +9,12 @@ const port = process.env.PORT || 3000;
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(loggerMiddleware);
 
 //routes
 app.use("/api", routes);
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+//error hendler
+app.use(errorHandler);
 
 export default app;
