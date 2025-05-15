@@ -18,11 +18,11 @@ app.use("/api", routes);
 app.use(errorHandler);
 
 //handle unmatched routes
-app.use("*", (req, res) => {
-  res.status(404).json({
-    status: "error",
-    message: `Route ${req.originalUrl} not found`,
-  });
-});
+//app.use("*", (req, res) => {
+//  res.status(404).json({
+//    status: "error",
+//    message: `Route ${req.originalUrl} not found`,
+//  });
+//});
 
 export default app;

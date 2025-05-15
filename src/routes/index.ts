@@ -4,7 +4,6 @@ import userRoutes from "./user.routes";
 
 const router = express.Router();
 
-//import routes
 router.use("/health", healthRoutes);
 router.use("/users", userRoutes);
 
